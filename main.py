@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from tocaro_handler import TocaroHandler
 from Weather import Weather
-from test import Music
+from music import Music
 from PIL import Image, ImageOps
 from io import BytesIO
 import urllib.request
@@ -63,7 +63,7 @@ if __name__ == '__main__':
         #ここに天気を渡して、DBからランダムで曲名を取り出す処理を書く
         resultmusic = getmusic.setkeywords(musicinfo['music'], musicinfo['artist'])
         text_header = getedweather[0] + 'の' + getedweather[1] + 'の天気は' + getedweather[2] + 'です。'
-
+        
         if resultmusic[0] == '検索結果0':
             text_subject = musicinfo['artist'] + 'の' + musicinfo['music'] + 'ですが、youtubeの検索で該当しませんでした。'
             lambda_handler(text_header, text_subject)

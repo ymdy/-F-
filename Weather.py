@@ -10,6 +10,7 @@ class Weather():
         try:
             daylist = ('今日', '明日', '明後日')
             weatherlist = ('晴', '曇' , '雨')
+            #tocaroからコマンドを受け付けられた場合を想定した処理。
             #引数の値がdaylistと一致しているものをl_inに格納。
             l_in = [s for s in daylist if day in s]
             #l_inの文字数をカウントしてcountに格納。(全角半角を区別するためにあえてunicodedataを使用してます。)
@@ -20,7 +21,7 @@ class Weather():
                 else:
                     count += 1
             #引数(dayおよびweat)がルール内に収まっているか判定
-            if len(l_in) >= 2 or len(l_in) <= 0 or type(day) != str:
+            if len(l_in[0]) >= 4 or len(l_in[0]) <= 0 or type(day) != str:
                 print('日付変数エラー')
                 sys.exit()
             if not str.isdigit(weat) or count != 6 or type(weat) != str:
