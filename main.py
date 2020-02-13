@@ -49,7 +49,7 @@ def getrandommusic(Weather):#dbからランダムでとってくる処理をな�
     musiclist = [{'music': '君が代', "artist": '林廣守'}, {'music': 'ゴーストバスター', 'artist': 'Saucy Dog'}, {'music': '瞬き', 'artist': 'Back Number'}, {'music': '津軽海峡冬景色', 'artist': '石川さゆり'}]
     return musiclist[random.randrange(0, len(musiclist)-1)]
 
-if __name__ == '__main__':
+def handler(event, context):
     try:
         locate = ('130010', '140010', '120010') #東京、神奈川、千葉
         selectday = ('今日', '明日', '明後日')
