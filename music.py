@@ -38,14 +38,13 @@ class Music():
           videoinfomation[0] = '検索結果0'
           videoinfomation[1] = 'NULL'
 
-
       return videoinfomation
 
-  def setkeywords(self, serch_music, serch_artist):
+  def setkeywords(self, serch_keyword):
       try:
           #youtube.serch().list().execute()に投げるコマンドラインの生成
-          argparser.add_argument("--q", help="Search term", default=serch_music + ' ' + serch_artist)
-          argparser.add_argument("--max-results", help="Max results", default=25)
+          argparser.add_argument("--q", help="Search term", default=serch_keyword + 'の日に聞きたい曲')
+          argparser.add_argument("--max-results", help="Max results", default=50)
           args = argparser.parse_args()
           result = Music.youtube_search(0, args)
           return result
