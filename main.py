@@ -45,7 +45,7 @@ def lambda_handler(title, text, imageurl = 'none'):
     r = tocaro.send2tocaro()
     return r
 
-def handler(event, context):
+def handler(event, context): 
     try:
         locate = ('130010', '140010', '120010') #東京、神奈川、千葉
         selectday = ('今日', '明日', '明後日')
@@ -54,7 +54,6 @@ def handler(event, context):
         getmusic = Music()
 
         getedweather = weather.returnweather(selectday[0], locate[0])
-
         #ここに天気を渡して、DBからランダムで曲名を取り出す処理を書く
         resultmusic = getmusic.setkeywords(getedweather[2])
         musicinfo = random.randrange(0, len(resultmusic)-1,3)

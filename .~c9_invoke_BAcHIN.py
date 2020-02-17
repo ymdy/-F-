@@ -23,10 +23,13 @@ class Music():
       ).execute()
 
       videos = []
+      channels = []
+      playlists = []
 
       #リスト形式で帰ってきた検索結果の属性がvideoであるもののみ格納しています。
       for search_result in search_response.get("items", []):
         if search_result["id"]["kind"] == "youtube#video":
+          print
           videoinfomation.append(search_result["snippet"]["title"])
           videoinfomation.append(search_result["id"]["videoId"])
           videoinfomation.append(search_result["snippet"]["thumbnails"]["high"]["url"])
