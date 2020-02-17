@@ -45,7 +45,7 @@ def lambda_handler(title, text, imageurl = 'none'):
     r = tocaro.send2tocaro()
     return r
 
-if __name__ == '__main__':
+def handler(event, context):
     try:
         locate = ('130010', '140010', '120010') #東京、神奈川、千葉
         selectday = ('今日', '明日', '明後日')
@@ -59,7 +59,6 @@ if __name__ == '__main__':
         resultmusic = getmusic.setkeywords(getedweather[2])
         musicinfo = random.randrange(0, len(resultmusic)-1,3)
         text_header = getedweather[0] + 'の' + getedweather[1] + 'の天気は' + getedweather[2] + 'です。'
-        
         
         if resultmusic[0] == '検索結果0':
             text_subject = resultmusic[musicinfo] + 'ですが、youtubeの検索で該当しませんでした。'
